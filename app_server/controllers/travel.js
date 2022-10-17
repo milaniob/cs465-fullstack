@@ -11,7 +11,6 @@ const apiOptions = {
 const renderTravelList = (req, res, responseBody) => {
     let message = null;
     let pageTitle = process.env.npm_package_description + ' - Travel';
-
     // if the result was not an array, make it an array and report error
     if (!(responseBody instanceof Array)) {
         message = 'API lookup error';
@@ -22,9 +21,9 @@ const renderTravelList = (req, res, responseBody) => {
             message = 'No trips exist in database';
         }
     }
-
     // render the page using the travel.hbs handlebars file and the API data response
-    res.render('travel', {
+    res.render('travel', 
+    {
         title: pageTitle,
         trips: responseBody,
         message
