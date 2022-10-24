@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-// import { trips } from '../data/trips';
+import { Router } from "@angular/router";
 import { TripDataService } from '../services/trip-data.service';
 import { Trip } from '../models/trip';
+import { AuthenticationService } from '../services/authentication';
 
 @Component({
   selector: 'app-trip-listing',
@@ -12,19 +12,20 @@ import { Trip } from '../models/trip';
 })
 export class TripListingComponent implements OnInit {
 
-  //trips: Array<any> = trips;
   trips: Trip[];
 
   message: string;
 
   constructor(
     private tripDataService: TripDataService,
+    private authService: AuthenticationService,
     private router: Router
-  ) { }
+    ) { }
 
-  private addTrip(): void {
-    this.router.navigate(['add-trip']);
-  }
+    private addTrip(): void {
+      console.log('Inside TripListingComponent#addTrip');
+      this.router.navigate(['add-trip']);
+    }
 
   private getTrips(): void {
     console.log('Inside TripListingComponent#getTrips');
@@ -37,7 +38,11 @@ export class TripListingComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {
+  public isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
+  }
+
+  ngOnInit() {
     this.getTrips();
   }
 
