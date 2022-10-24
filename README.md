@@ -11,6 +11,7 @@ Why did the backend use a NoSQL MongoDB database?*
 # Functionality
 *How is JSON different from Javascript and how does JSON tie together the frontend and backend development pieces?
 Provide instances in the full stack process when you refactored code to improve functionality and efficiencies, and name the benefits that come from reusable user interface (UI) components.*
+  
   JSON can be created or accessed by Javascript. Javascript will create and hold functions that use information provided within the JSON. The important and most helpful part of JSON is that it can be used for both ends of the stack. 
   In this project, the trips.json file is a simple file that provides the initial trips that the website starts with. This json file is parsed by both ends of the stack. 
 
